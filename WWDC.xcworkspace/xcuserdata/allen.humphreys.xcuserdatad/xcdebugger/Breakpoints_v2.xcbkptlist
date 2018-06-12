@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConfCore/Storage.swift"
-            timestampString = "550528270.572649"
+            timestampString = "550532066.387242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
@@ -99,132 +99,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ConfCore/SyncEngine.swift"
-            timestampString = "550528270.573019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "syncLiveVideos(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ConfCore.SyncEngine.syncLiveVideos(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "ConfCore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
-                  timestampString = "550511073.613377"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "25">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.SessionAsset&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncLiveVideos(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "ConfCore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
-                  timestampString = "550511073.616703"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "31">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.SessionAsset&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncLiveVideos(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "ConfCore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
-                  timestampString = "550511073.6191961"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "25">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ConfCore/SyncEngine.swift"
-            timestampString = "550528270.573241"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "syncFeaturedSections()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ConfCore.SyncEngine.syncFeaturedSections() -&gt; ()"
-                  moduleName = "ConfCore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
-                  timestampString = "550511073.62331"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "14">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.FeaturedSection&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncFeaturedSections() -&gt; ()"
-                  moduleName = "ConfCore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
-                  timestampString = "550511073.6261131"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.FeaturedSection&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncFeaturedSections() -&gt; ()"
-                  moduleName = "ConfCore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
-                  timestampString = "550511073.628667"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/Realm/Realm/ObjectStore/src/impl/realm_coordinator.cpp"
             timestampString = "550527282.326544"
             startingColumnNumber = "9223372036854775807"
@@ -248,22 +122,6 @@
             startingLineNumber = "217"
             endingLineNumber = "217"
             landmarkName = "ExternalCommitHelper::listen()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ConfCore/Storage.swift"
-            timestampString = "550528270.573343"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "performSerializedBackgroundWrite(writeBlock:disableAutorefresh:createTransaction:notificationTokensToSkip:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -70,20 +70,20 @@ public final class SyncEngine {
     }
 
     public func syncLiveVideos(completion: (() -> Void)? = nil) {
-//        client.fetchLiveVideoAssets { [weak self] result in
-//            DispatchQueue.main.async {
-//                self?.storage.store(liveVideosResult: result)
-//                completion?()
-//            }
-//        }
+        client.fetchLiveVideoAssets { [weak self] result in
+            DispatchQueue.main.async {
+                self?.storage.store(liveVideosResult: result)
+                completion?()
+            }
+        }
     }
 
     public func syncFeaturedSections() {
-//        client.fetchFeaturedSections { [weak self] result in
-//            DispatchQueue.main.async {
-//                self?.storage.store(featuredSectionsResult: result)
-//            }
-//        }
+        client.fetchFeaturedSections { [weak self] result in
+            DispatchQueue.main.async {
+                self?.storage.store(featuredSectionsResult: result)
+            }
+        }
     }
 
     private func startTranscriptIndexingIfNeeded() {

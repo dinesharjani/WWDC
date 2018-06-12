@@ -277,7 +277,6 @@ public final class Storage {
                                                    createTransaction: Bool = true,
                                                    notificationTokensToSkip: [NotificationToken] = [],
                                                    completionBlock: ((Error?) -> Void)? = nil) {
-
         if disableAutorefresh { realm.autorefresh = false }
 
         DispatchQueue.global(qos: .userInitiated).async {
@@ -491,23 +490,15 @@ public final class Storage {
     }
 
     public func updateDownloadedFlag(_ isDownloaded: Bool, forAssetsAtPaths filePaths: [String]) {
+        DispatchQueue.main.async {
+            let assets = filePaths.compactMap { self.realm.objects(SessionAsset.self).filter("relativeLocalURL == %@", $0).first }
 
-//        DispatchQueue.main.async {
-
-            let session = self.realm.object(ofType: Session.self, forPrimaryKey: "wwdc2018-239")
-//            print(assets.first?.session.first?.isDownloaded)
-            try! self.realm.write {
-//                for asset in assets {
-////                    asset.session.first?.isDownloaded = isDownloaded
-//                }
-                session?.isDownloaded = true
+            self.modify(assets) { bgAssets in
+                bgAssets.forEach { bgAsset in
+                    bgAsset.session.first?.isDownloaded = isDownloaded
+                }
             }
-//            self.modify(assets) { bgAssets in
-//                bgAssets.forEach { bgAsset in
-//                    bgAsset.session.first?.isDownloaded = isDownloaded
-//                }
-//            }
-//        }
+        }
     }
 
     public var allEvents: [Event] {

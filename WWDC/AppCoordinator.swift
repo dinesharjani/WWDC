@@ -253,7 +253,7 @@ final class AppCoordinator {
                 self?.showAccountPreferencesIfAppropriate()
             }
         } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                 DownloadManager.shared.syncWithFileSystem()
             }
 
@@ -322,11 +322,11 @@ final class AppCoordinator {
         }
 
         _ = NotificationCenter.default.addObserver(forName: .WWDCEnvironmentDidChange, object: nil, queue: .main) { _ in
-//            self.refresh(nil)
+            self.refresh(nil)
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//            self.refresh(nil)
+            self.refresh(nil)
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
