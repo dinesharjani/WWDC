@@ -9,6 +9,7 @@
 import Cocoa
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 final class SessionCellView: NSView {
 
@@ -16,6 +17,7 @@ final class SessionCellView: NSView {
 
     var viewModel: SessionViewModel? {
         didSet {
+//            return;
             guard viewModel !== oldValue else { return }
 
             thumbnailImageView.image = #imageLiteral(resourceName: "noimage")

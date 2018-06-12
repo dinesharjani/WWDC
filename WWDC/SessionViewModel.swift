@@ -41,19 +41,19 @@ final class SessionViewModel {
     }()
 
     lazy var rxTitle: Observable<String> = {
-        return Observable.from(object: self.session).map({ $0.title })
+        return rxSession.map({ $0.title })
     }()
 
     lazy var rxSubtitle: Observable<String> = {
-        return Observable.from(object: self.session).map({ SessionViewModel.subtitle(from: $0, at: $0.event.first) })
+        return rxSession.map({ SessionViewModel.subtitle(from: $0, at: $0.unbufferedFirstLinkedEvent()) })
     }()
 
     lazy var rxTrackName: Observable<String> = {
-        return Observable.from(object: self.session).map({ $0.track.first?.name }).ignoreNil()
+        return rxSession.map({ $0.unbufferedFirstLinkedTrack()?.name }).ignoreNil()
     }()
 
     lazy var rxSummary: Observable<String> = {
-        return Observable.from(object: self.session).map({ $0.summary })
+        return rxSession.map({ $0.summary })
     }()
 
     lazy var rxActionPrompt: Observable<String?> = {
@@ -71,43 +71,43 @@ final class SessionViewModel {
 
     lazy var rxContext: Observable<String> = {
         if self.style == .schedule {
-            let so = Observable.from(object: self.session)
+            let so = rxSession
             let io = Observable.from(object: self.sessionInstance)
 
             return Observable.combineLatest(so, io, showsShortDayInContextSubject).map({
                 SessionViewModel.context(for: $0.0, instance: $0.1, showingWeekday: $0.2)
             })
         } else {
-            return Observable.from(object: self.session).map({ SessionViewModel.context(for: $0, showingWeekday: self.showsWeekdayInContext) })
+            return rxSession.map({ SessionViewModel.context(for: $0, showingWeekday: self.showsWeekdayInContext) })
         }
     }()
 
     lazy var rxFooter: Observable<String> = {
-        return Observable.from(object: self.session).map({ SessionViewModel.footer(for: $0, at: $0.event.first) })
+        return rxSession.map({ SessionViewModel.footer(for: $0, at: $0.unbufferedFirstLinkedEvent()) })
     }()
 
     lazy var rxSessionType: Observable<SessionInstanceType> = {
-        return Observable.from(object: self.session).map({ $0.instances.first?.type }).ignoreNil()
+        return rxSession.map({ $0.unbufferedLinkedInstance()?.type }).ignoreNil()
     }()
 
     lazy var rxColor: Observable<NSColor> = {
-        return Observable.from(object: self.session).map({ SessionViewModel.trackColor(for: $0) }).ignoreNil()
+        return rxSession.map({ SessionViewModel.trackColor(for: $0) }).ignoreNil()
     }()
 
     lazy var rxDarkColor: Observable<NSColor> = {
-        return Observable.from(object: self.session).map({ SessionViewModel.darkTrackColor(for: $0) }).ignoreNil()
+        return rxSession.map({ SessionViewModel.darkTrackColor(for: $0) }).ignoreNil()
     }()
 
     lazy var rxImageUrl: Observable<URL?> = {
-        return Observable.from(object: self.session).map({ SessionViewModel.imageUrl(for: $0) })
+        return rxSession.map({ SessionViewModel.imageUrl(for: $0) })
     }()
 
     lazy var rxWebUrl: Observable<URL?> = {
-        return Observable.from(object: self.session).map({ SessionViewModel.webUrl(for: $0) })
+        return rxSession.map({ SessionViewModel.webUrl(for: $0) })
     }()
 
     lazy var rxIsDownloaded: Observable<Bool> = {
-        return Observable.from(object: self.session).map({ $0.isDownloaded })
+        return rxSession.map({ $0.isDownloaded })
     }()
 
     lazy var rxIsFavorite: Observable<Bool> = {
@@ -171,11 +171,22 @@ final class SessionViewModel {
         self.style = style
 
         guard let session = session ?? instance?.session else { return nil }
-        guard let track = session.track.first ?? instance?.track.first else { return nil }
+        guard let track = session.unbufferedFirstLinkedTrack() ?? instance?.track.first else { return nil }
 
         trackName = track.name
         self.session = session
-        sessionInstance = instance ?? session.instances.first ?? SessionInstance()
+
+        let sessionInstance = session.realm?.objects(SessionInstance.self).filter("session == %@", session).first
+//        if let linkedInstance = ,
+//            let primaryKey = SessionInstance.primaryKey(),
+//            let sessionInstance = linkedInstance.realm?.object(ofType: SessionInstance.self, forPrimaryKey: linkedInstance.value(forKey: primaryKey) as! String) {
+//            self.sessionInstance = sessionInstance
+//        } else {
+//            sessionInstance = SessionInstance()
+//        }
+
+        self.sessionInstance = sessionInstance ?? SessionInstance()
+
         title = session.title
         identifier = session.identifier
         imageUrl = SessionViewModel.imageUrl(for: session)
@@ -226,7 +237,7 @@ final class SessionViewModel {
 
             let focuses = SessionViewModel.focusesDescription(from: focusesArray, collapse: true)
 
-            var result = session.track.first?.name ?? ""
+            var result = session.unbufferedFirstLinkedTrack()?.name ?? ""
 
             if focusesArray.count > 0 {
                 result = "\(focuses) · " + result
@@ -245,7 +256,7 @@ final class SessionViewModel {
 
         var result = "\(event.name) · Session \(session.number)"
 
-        if (event.startDate...event.endDate).contains(today()), let date = session.instances.first?.startTime {
+        if (event.startDate...event.endDate).contains(today()), let date = session.unbufferedLinkedInstance()?.startTime {
             result += " · " + standardFormatted(date: date, withTimeZoneName: false)
         }
 
@@ -261,7 +272,7 @@ final class SessionViewModel {
     }
 
     static func imageUrl(for session: Session) -> URL? {
-        if let instance = session.instances.first {
+        if let instance = session.unbufferedLinkedInstance() {
             guard [.session, .lab, .labByAppointment].contains(instance.type) else {
                 return nil
             }
@@ -281,13 +292,13 @@ final class SessionViewModel {
     }
 
     static func trackColor(for session: Session) -> NSColor? {
-        guard let code = session.track.first?.lightColor else { return nil }
+        guard let code = session.unbufferedFirstLinkedTrack()?.lightColor else { return nil }
 
         return NSColor.fromHexString(hexString: code)
     }
 
     static func darkTrackColor(for session: Session) -> NSColor? {
-        guard let code = session.track.first?.darkColor else { return nil }
+        guard let code = session.unbufferedFirstLinkedTrack()?.darkColor else { return nil }
 
         return NSColor.fromHexString(hexString: code)
     }

@@ -41,7 +41,7 @@ extension Session {
     }
 
     func imageAsset() -> SessionAsset? {
-        guard let path = event.first?.imagesPath else { return nil }
+        guard let path = unbufferedFirstLinkedEvent()?.imagesPath else { return nil }
         guard let baseURL = URL(string: path) else { return nil }
 
         let filename = "\(staticContentId)_wide_900x506_1x.jpg"
@@ -87,7 +87,7 @@ final class PlaybackViewModel {
         var streamUrl: URL?
 
         // first, check if the session is being live streamed now
-        if session.instances.filter("isCurrentlyLive == true").count > 0 {
+        if session.unbufferedLinkedInstance()?.isCurrentlyLive == true /*.filter("isCurrentlyLive == true").count > 0*/ {
             if let liveAsset = session.assets.filter("rawAssetType == %@", SessionAssetType.liveStreamVideo.rawValue).first, let liveURL = URL(string: liveAsset.remoteURL) {
                 streamUrl = liveURL
                 remoteMediaURL = liveURL
@@ -165,7 +165,7 @@ extension PUINowPlayingInfo {
 
     init(playbackViewModel: PlaybackViewModel) {
         let title = playbackViewModel.title ?? "WWDC Session"
-        let eventName = playbackViewModel.sessionViewModel.session.event.first?.name ?? "WWDC"
+        let eventName = playbackViewModel.sessionViewModel.session.unbufferedFirstLinkedEvent()?.name ?? "WWDC"
 
         self = PUINowPlayingInfo(
             title: title,

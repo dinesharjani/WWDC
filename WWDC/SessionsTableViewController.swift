@@ -482,7 +482,7 @@ class SessionsTableViewController: NSViewController {
         switch menuItem.option {
         case .watched:
             let canMarkAsWatched = !viewModel.session.isWatched
-                && viewModel.session.instances.first?.isCurrentlyLive != true
+                && viewModel.session.unbufferedLinkedInstance()?.isCurrentlyLive != true
                 && viewModel.session.asset(of: .streamingVideo) != nil
 
             return canMarkAsWatched

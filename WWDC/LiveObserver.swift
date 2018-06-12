@@ -276,7 +276,7 @@ private final class CloudKitLiveObserver {
             records.forEach { record in
                 guard let asset = SessionAsset(record: record) else { return }
                 guard let session = realm.object(ofType: Session.self, forPrimaryKey: asset.sessionId) else { return }
-                guard let instance = session.instances.first else { return }
+                guard let instance = session.unbufferedLinkedInstance() else { return }
 
                 if let existingAsset = realm.object(ofType: SessionAsset.self, forPrimaryKey: asset.identifier) {
                     // update existing asset hls URL if appropriate

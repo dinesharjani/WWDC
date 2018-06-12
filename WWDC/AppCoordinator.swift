@@ -248,14 +248,17 @@ final class AppCoordinator {
     private func updateListsAfterSync(migrate: Bool = false) {
         if migrate {
             presentMigrationInterfaceIfNeeded { [weak self] in
+                DownloadManager.shared.syncWithFileSystem()
                 self?.doUpdateLists()
                 self?.showAccountPreferencesIfAppropriate()
             }
         } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+                DownloadManager.shared.syncWithFileSystem()
+            }
+
             doUpdateLists()
         }
-
-        DownloadManager.shared.syncWithFileSystem()
     }
 
     private func doUpdateLists() {
@@ -278,13 +281,15 @@ final class AppCoordinator {
                 // new information to be displayed. It's not ideal
                 self.videosController.listViewController.sessionRowProvider = VideosSessionRowProvider(tracks: tracks)
                 self.searchCoordinator.applyVideosFilters()
+//                self.videosController.listViewController.searchResults = nil
 
                 // Currently these two things must happen together and in this order for
                 // new information to be displayed. It's not ideal
                 self.scheduleController.listViewController.sessionRowProvider = ScheduleSessionRowProvider(scheduleSections: sections)
-                self.scrollToTodayIfWWDC()
+//                self.videosController.listViewController.searchResults = nil
+//                self.scrollToTodayIfWWDC()
                 self.searchCoordinator.applyScheduleFilters()
-            }).disposed(by: disposeBag)
+            }).dispose()
 
         liveObserver.start()
     }
@@ -309,19 +314,24 @@ final class AppCoordinator {
         }
 
         _ = NotificationCenter.default.addObserver(forName: .SyncEngineDidSyncSessionsAndSchedule, object: nil, queue: .main) { note in
-            if let error = note.object as? Error {
-                NSApp.presentError(error)
-            } else {
-                self.updateListsAfterSync(migrate: true)
-            }
+//            if let error = note.object as? Error {
+//                NSApp.presentError(error)
+//            } else {
+//                self.updateListsAfterSync(migrate: true)
+//            }
         }
 
         _ = NotificationCenter.default.addObserver(forName: .WWDCEnvironmentDidChange, object: nil, queue: .main) { _ in
-            self.refresh(nil)
+//            self.refresh(nil)
         }
 
-        refresh(nil)
-        updateListsAfterSync()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//            self.refresh(nil)
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.updateListsAfterSync()
+        }
 
         if Arguments.showPreferences {
             showPreferences(nil)

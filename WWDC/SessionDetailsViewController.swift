@@ -22,6 +22,7 @@ class SessionDetailsViewController: NSViewController {
 
     var viewModel: SessionViewModel? = nil {
         didSet {
+
             view.animator().alphaValue = (viewModel == nil) ? 0 : 1
 
             shelfController.viewModel = viewModel

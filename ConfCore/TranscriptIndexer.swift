@@ -71,7 +71,7 @@ public final class TranscriptIndexer {
 
         for key in sessionKeys {
             guard let session = storage.realm.object(ofType: Session.self, forPrimaryKey: key) else { return }
-            guard let event = session.event.first else { return }
+            guard let event = session.unbufferedFirstLinkedEvent() else { return }
 
             guard session.transcriptIdentifier.isEmpty else { continue }
 

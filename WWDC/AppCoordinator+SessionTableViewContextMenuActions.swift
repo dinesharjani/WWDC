@@ -18,7 +18,7 @@ extension AppCoordinator: SessionsTableViewControllerDelegate {
     func sessionTableViewContextMenuActionWatch(viewModels: [SessionViewModel]) {
         storage.modify(viewModels.map({ $0.session })) { sessions in
             sessions.forEach { session in
-                if let instance = session.instances.first {
+                if let instance = session.unbufferedLinkedInstance() {
                     guard !instance.isCurrentlyLive else { return }
 
                     guard session.asset(of: .streamingVideo) != nil else {

@@ -74,13 +74,25 @@ public class Session: Object {
     }
 
     /// The session's track
-    public let track = LinkingObjects(fromType: Track.self, property: "sessions")
+    private let track = LinkingObjects(fromType: Track.self, property: "sessions")
+    public func unbufferedFirstLinkedTrack() -> Track? {
+        return realm?.objects(Track.self).filter("%@ IN sessions", self).first
+    }
 
     /// The event this session belongs to
-    public let event = LinkingObjects(fromType: Event.self, property: "sessions")
+    private let event = LinkingObjects(fromType: Event.self, property: "sessions")
+
+    public func unbufferedFirstLinkedEvent() -> Event? {
+        return realm?.objects(Event.self).filter("%@ IN sessions", self).first
+    }
 
     /// Instances of this session
     public let instances = LinkingObjects(fromType: SessionInstance.self, property: "session")
+
+    public func unbufferedLinkedInstance() -> SessionInstance? {
+//        return instances.first
+        return realm?.objects(SessionInstance.self).filter("session == %@", self).first
+    }
 
     public override static func primaryKey() -> String? {
         return "identifier"
@@ -96,8 +108,8 @@ public class Session: Object {
     public static let videoPredicate: NSPredicate = NSPredicate(format: "ANY assets.rawAssetType == %@", SessionAssetType.streamingVideo.rawValue)
 
     public static func standardSort(sessionA: Session, sessionB: Session) -> Bool {
-        guard let eventA = sessionA.event.first, let eventB = sessionB.event.first else { return false }
-        guard let trackA = sessionA.track.first, let trackB = sessionB.track.first else { return false }
+        guard let eventA = sessionA.unbufferedFirstLinkedEvent(), let eventB = sessionB.unbufferedFirstLinkedEvent() else { return false }
+        guard let trackA = sessionA.unbufferedFirstLinkedTrack(), let trackB = sessionB.unbufferedFirstLinkedTrack() else { return false }
 
         if trackA.order == trackB.order {
             if eventA.startDate == eventB.startDate {
@@ -111,7 +123,7 @@ public class Session: Object {
     }
 
     public static func standardSortForSchedule(sessionA: Session, sessionB: Session) -> Bool {
-        guard let instanceA = sessionA.instances.first, let instanceB = sessionB.instances.first else { return false }
+        guard let instanceA = sessionA.unbufferedLinkedInstance(), let instanceB = sessionB.unbufferedLinkedInstance() else { return false }
 
         return SessionInstance.standardSort(instanceA: instanceA, instanceB: instanceB)
     }

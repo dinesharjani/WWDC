@@ -277,6 +277,7 @@ public final class Storage {
                                                    createTransaction: Bool = true,
                                                    notificationTokensToSkip: [NotificationToken] = [],
                                                    completionBlock: ((Error?) -> Void)? = nil) {
+
         if disableAutorefresh { realm.autorefresh = false }
 
         DispatchQueue.global(qos: .userInitiated).async {
@@ -374,15 +375,15 @@ public final class Storage {
         }, createTransaction: false)
     }
 
-    public lazy var events: Observable<Results<Event>> = {
-        let eventsSortedByDateDescending = self.realm.objects(Event.self).sorted(byKeyPath: "startDate", ascending: false)
+//    public lazy var events: Observable<Results<Event>> = {
+//        let eventsSortedByDateDescending = self.realm.objects(Event.self).sorted(byKeyPath: "startDate", ascending: false)
+//
+//        return Observable.collection(from: eventsSortedByDateDescending)
+//    }()
 
-        return Observable.collection(from: eventsSortedByDateDescending)
-    }()
-
-    public lazy var sessionsObservable: Observable<Results<Session>> = {
-        return Observable.collection(from: self.realm.objects(Session.self))
-    }()
+//    public lazy var sessionsObservable: Observable<Results<Session>> = {
+//        return Observable.collection(from: self.realm.objects(Session.self))
+//    }()
 
     public var sessions: Results<Session> {
         return realm.objects(Session.self).filter("assets.@count > 0")
@@ -410,23 +411,23 @@ public final class Storage {
         }
     }
 
-    public lazy var eventsObservable: Observable<Results<Event>> = {
+    public var eventsObservable: Observable<Results<Event>> {
         let events = realm.objects(Event.self).sorted(byKeyPath: "startDate", ascending: false)
 
         return Observable.collection(from: events)
-    }()
+    }
 
-    public lazy var focusesObservable: Observable<Results<Focus>> = {
+    public var focusesObservable: Observable<Results<Focus>> {
         let focuses = realm.objects(Focus.self).sorted(byKeyPath: "name")
 
         return Observable.collection(from: focuses)
-    }()
+    }
 
-    public lazy var tracksObservable: Observable<Results<Track>> = {
+    public var tracksObservable: Observable<Results<Track>> {
         let tracks = self.realm.objects(Track.self).sorted(byKeyPath: "order")
 
         return Observable.collection(from: tracks)
-    }()
+    }
 
     public lazy var featuredSectionsObservable: Observable<Results<FeaturedSection>> = {
         let predicate = NSPredicate(format: "isPublished = true AND content.@count > 0")
@@ -490,15 +491,23 @@ public final class Storage {
     }
 
     public func updateDownloadedFlag(_ isDownloaded: Bool, forAssetsAtPaths filePaths: [String]) {
-        DispatchQueue.main.async {
-            let assets = filePaths.compactMap { self.realm.objects(SessionAsset.self).filter("relativeLocalURL == %@", $0).first }
 
-            self.modify(assets) { bgAssets in
-                bgAssets.forEach { bgAsset in
-                    bgAsset.session.first?.isDownloaded = isDownloaded
-                }
+//        DispatchQueue.main.async {
+
+            let session = self.realm.object(ofType: Session.self, forPrimaryKey: "wwdc2018-239")
+//            print(assets.first?.session.first?.isDownloaded)
+            try! self.realm.write {
+//                for asset in assets {
+////                    asset.session.first?.isDownloaded = isDownloaded
+//                }
+                session?.isDownloaded = true
             }
-        }
+//            self.modify(assets) { bgAssets in
+//                bgAssets.forEach { bgAsset in
+//                    bgAsset.session.first?.isDownloaded = isDownloaded
+//                }
+//            }
+//        }
     }
 
     public var allEvents: [Event] {
