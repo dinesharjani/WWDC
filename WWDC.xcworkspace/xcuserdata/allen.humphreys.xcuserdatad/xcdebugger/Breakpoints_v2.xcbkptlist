@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Realm/Realm/ObjectStore/src/impl/realm_coordinator.cpp"
+            timestampString = "550527282.3253959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "741"
+            endingLineNumber = "741"
+            landmarkName = "RealmCoordinator::run_async_notifiers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "CollectionNotifier::CollectionNotifier">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "realm::_impl::CollectionNotifier::CollectionNotifier(std::__1::shared_ptr&lt;realm::Realm&gt;)"
+                  moduleName = "Realm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/Pods/Realm/Realm/ObjectStore/src/impl/collection_notifier.cpp"
+                  timestampString = "550508234.197921"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ConfCore/Storage.swift"
+            timestampString = "550528270.572649"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "store(contentResult:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ConfCore.Storage.store(contentResult: ConfCore.Result&lt;ConfCore.ContentsResponse, ConfCore.APIError&gt;, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/Storage.swift"
+                  timestampString = "550509468.785441"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "950">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RealmSwift.Realm) -&gt; () in ConfCore.Storage.store(contentResult: ConfCore.Result&lt;ConfCore.ContentsResponse, ConfCore.APIError&gt;, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/Storage.swift"
+                  timestampString = "550509468.788725"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "3572">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ConfCore/SyncEngine.swift"
+            timestampString = "550528270.573019"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "syncLiveVideos(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ConfCore.SyncEngine.syncLiveVideos(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
+                  timestampString = "550511073.613377"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.SessionAsset&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncLiveVideos(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
+                  timestampString = "550511073.616703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.SessionAsset&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncLiveVideos(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
+                  timestampString = "550511073.6191961"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ConfCore/SyncEngine.swift"
+            timestampString = "550528270.573241"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "syncFeaturedSections()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ConfCore.SyncEngine.syncFeaturedSections() -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
+                  timestampString = "550511073.62331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.FeaturedSection&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncFeaturedSections() -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
+                  timestampString = "550511073.6261131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (ConfCore.Result&lt;Swift.Array&lt;ConfCore.FeaturedSection&gt;, ConfCore.APIError&gt;) -&gt; () in ConfCore.SyncEngine.syncFeaturedSections() -&gt; ()"
+                  moduleName = "ConfCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/ConfCore/SyncEngine.swift"
+                  timestampString = "550511073.628667"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Realm/Realm/ObjectStore/src/impl/realm_coordinator.cpp"
+            timestampString = "550527282.326544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "523"
+            endingLineNumber = "523"
+            landmarkName = "RealmCoordinator::on_change()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Realm/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp"
+            timestampString = "550512791.014002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "ExternalCommitHelper::listen()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ConfCore/Storage.swift"
+            timestampString = "550528270.573343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "performSerializedBackgroundWrite(writeBlock:disableAutorefresh:createTransaction:notificationTokensToSkip:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/RealmSwift/RealmSwift/LinkingObjects.swift"
+            timestampString = "550525081.265483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "LinkingObjectsBase"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealmSwift.LinkingObjectsBase.(object in _25CFEE8474EDA10420AA87D5D977CE22).getter : Swift.Optional&lt;__ObjC.RLMWeakObjectHandle&gt;"
+                  moduleName = "RealmSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/Pods/RealmSwift/RealmSwift/LinkingObjects.swift"
+                  timestampString = "550525081.838468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealmSwift.LinkingObjectsBase.(object in _25CFEE8474EDA10420AA87D5D977CE22).setter : Swift.Optional&lt;__ObjC.RLMWeakObjectHandle&gt;"
+                  moduleName = "RealmSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allen.humphreys/projects/WWDC/Pods/RealmSwift/RealmSwift/LinkingObjects.swift"
+                  timestampString = "550525081.8406039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Realm/Realm/ObjectStore/src/impl/realm_coordinator.cpp"
+            timestampString = "550527282.32693"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "473"
+            endingLineNumber = "473"
+            landmarkName = "RealmCoordinator::register_notifier(std::shared_ptr&lt;CollectionNotifier&gt; notifier)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
